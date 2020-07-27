@@ -11,7 +11,15 @@
 |
 */
 
-Route::get('/', function () {
+/*app()->bind('example', function () {
+    //return new \App\Example();
+    $foo = config('services.foo');
+    return new \App\Example($foo);
+    });*/
+    
+    
+
+/*Route::get('/', function () {
     $container = new \App\Container();
     $container->bind('example', function (){
     return new \App\Example();
@@ -19,7 +27,23 @@ Route::get('/', function () {
     $example = $container->resolve('example');
  
     $example->go();
-    });
+    });*/
+
+/*Route::get('/', function(App\Example $example){
+    //$example = resolve('example');
+    
+    //$example = resolve(App\Example::class);
+    ddd($example);
+});*/
+
+/*app()->bind('App\Example', function () {
+    $collaborator = new \App\Collaborator();
+    $foo = 'foobar';
+    return new \App\Example($collaborator, $foo);
+    });*/
+    
+
+Route::get('/', 'PagesController@home');
     
 
 
