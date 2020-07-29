@@ -1,25 +1,19 @@
 <?php
 namespace App;
+
 Class Example {
 
-    protected $foo;
- 
-    /*public function __construct($foo)
-    {
-    $this->foo = $foo;
-    }*/
+    protected $apiKey;
 
-    protected $collaborator;
- 
-    public function __construct(Collaborator $collaborator, $foo)
+    public function __construct($apiKey)
     {
-    $this->collaborator = $collaborator;
-    $this->foo = $foo;
+    $this->apiKey = $apiKey;
     }
 
-    public function go()
+
+    public static function handle()
     {
-    dump('it works!');
+        die('it works!');
     }
 
 }
