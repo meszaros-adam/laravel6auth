@@ -1,12 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>The topic of the email: {{ $topic }}</p>
-    <h1>It works again!</h1>
-</body>
-</html>
+@component('mail::message')
+# A Heading
+ 
+Lorem ipsum dolor sit ...
+ 
+- A list
+- goes
+- here
+
+@component('mail::button', ['url' => 'https://gainbi.hu'])
+Visit GAIN BI website
+@endcomponent
+
+@endcomponent
+
+
+
