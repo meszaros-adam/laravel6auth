@@ -9,6 +9,8 @@ use Illuminate\Notifications\Notification;
 
 class PaymentReceived extends Notification
 {
+    protected $amount;
+
     use Queueable;
 
     /**
@@ -16,10 +18,11 @@ class PaymentReceived extends Notification
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($amount)
     {
-        //
+    $this->amount = $amount;
     }
+
 
     /**
      * Get the notification's delivery channels.
@@ -29,7 +32,7 @@ class PaymentReceived extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail'];
+        return ['mail', 'database'];
     }
 
     /**
@@ -62,7 +65,9 @@ class PaymentReceived extends Notification
     public function toArray($notifiable)
     {
         return [
-            //
+            
+            'amount' => $this->amount            
+                
         ];
     }
 }
