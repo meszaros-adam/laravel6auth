@@ -36,4 +36,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+    * Route notifications for the Slack channel.
+    *
+    * @param  \Illuminate\Notifications\Notification  $notification
+    * @return string
+    */
+    public function routeNotificationForSlack($notification)
+    {
+    return 'https://hooks.slack.com/services/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';
+    }
+
 }

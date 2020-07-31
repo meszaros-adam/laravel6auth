@@ -6,6 +6,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
 use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Messages\SlackMessage;
 
 class PaymentReceived extends Notification
 {
@@ -32,7 +33,7 @@ class PaymentReceived extends Notification
      */
     public function via($notifiable)
     {
-        return ['mail', 'database'];
+        return ['mail', 'database', 'slack'];
     }
 
     /**
@@ -70,4 +71,20 @@ class PaymentReceived extends Notification
                 
         ];
     }
+    /**
+    * Get the Slack representation of the notification.
+    *
+    * @param  mixed  $notifiable
+    * @return SlackMessage
+    */
+    public function toSlack($notifiable)
+    {
+    return (new SlackMessage)
+    ->from('GAIN BI website')
+    ->image('https://laravel.com/img/favicon/favicon.ico')
+    ->content('One of your invoices has been paid!');
+    }
+
+
+    
 }
