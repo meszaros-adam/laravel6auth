@@ -5,6 +5,9 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Example;
 use App\Collaborator;
+use App\Conversation;
+use App\User;
+use Illuminate\Support\Facades\Gate;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -37,6 +40,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        /*Gate::define('update-conversation', function(User $user, Conversation $conversation) {
+            return $conversation->user->is($user);
+            });*/
+            
     }
 }

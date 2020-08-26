@@ -25,13 +25,18 @@ class EventServiceProvider extends ServiceProvider
             'App\Events\ProductPurchased' => [
                 'App\Listeners\SendShareableCoupon',
             ]*/
+            ProductPurchased::class => [
+
+                AwardAchievements::class, SendShareableCoupon::class
+                
+                ]
                 
         ];
     
-    public function shouldDiscoverEvents()
+    /*public function shouldDiscoverEvents()
         {
         return true;
-        }
+        }*/
         
         
 
