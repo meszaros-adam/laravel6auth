@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
+use App\Conversation;
+use App\User;
 use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
@@ -23,8 +25,15 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Gate::before(function (User $user) {
+            if ($user->id == 1) { // saját admin felhasználóm
+            return true;
+            }
+            });          
+        
         $this->registerPolicies();
 
-        //
+        
+            
     }
 }
