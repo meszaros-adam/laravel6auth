@@ -24,6 +24,12 @@ class ConversationPolicy
         return $conversation->user->is($user);
 
     }
+    public function view(User $user, Conversation $conversation)
+    {
+        //ddd('hello');
+        return $conversation->user->is($user);
+
+    }
     /*public function before(User $user)
     {
     if($user->id == 1) // admin

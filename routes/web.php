@@ -61,6 +61,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('conversations', 'ConversationsController@index');
 
-Route::get('conversations/{conversation}', 'ConversationsController@show');
+Route::get('conversations/{conversation}', 'ConversationsController@show')->middleware('can:view,conversation');
 
 Route::post('best-replies/{reply}', 'ConversationBestReplyController@store');
