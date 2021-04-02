@@ -2,12 +2,13 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
+use App\User;
 use App\Example;
 use App\Collaborator;
 use App\Conversation;
-use App\User;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Database\Schema\Builder;
+use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -26,10 +27,10 @@ class AppServiceProvider extends ServiceProvider
     $this->app->bind(Example::class, function () {
         return new Example('api-key');
     });
-            
-            
-            
-    
+
+
+
+
 }
 
 
@@ -43,6 +44,6 @@ class AppServiceProvider extends ServiceProvider
         /*Gate::define('update-conversation', function(User $user, Conversation $conversation) {
             return $conversation->user->is($user);
             });*/
-            
+            Builder::defaultStringLength(191);
     }
 }
